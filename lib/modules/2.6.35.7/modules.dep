@@ -1,0 +1,18 @@
+kernel/crypto/pcbc.ko:
+kernel/drivers/misc/ti-st/st_drv.ko:
+kernel/drivers/scsi/scsi_wait_scan.ko:
+kernel/drivers/bluetooth/btwilink.ko: kernel/drivers/misc/ti-st/st_drv.ko
+kernel/samsung/battery/samsung_battery.ko:
+kernel/samsung/rfs_fsr/drivers/fsr/fsr.ko:
+kernel/samsung/rfs_fsr/drivers/fsr/fsr_stl.ko: kernel/samsung/rfs_fsr/drivers/fsr/fsr.ko
+kernel/samsung/rfs_fsr/fs/rfs/rfs_glue.ko:
+kernel/samsung/rfs_fsr/fs/rfs/rfs_fat.ko: kernel/samsung/rfs_fsr/fs/rfs/rfs_glue.ko
+kernel/samsung/vibetonz/vibetonz.ko:
+kernel/samsung/j4fs/j4fs.ko: kernel/samsung/rfs_fsr/drivers/fsr/fsr_stl.ko kernel/samsung/rfs_fsr/drivers/fsr/fsr.ko
+kernel/samsung/param/param.ko:
+kernel/samsung/yas529/yas_mag_kernel_driver.ko:
+kernel/samsung/orientation/yas_ori_kernel_driver.ko:
+kernel/samsung/gps/gps.ko:
+kernel/samsung/bh1721/bh1721.ko:
+kernel/samsung/k3g/k3g.ko:
+kernel/samsung/bma023/yas_acc_kernel_driver.ko:
