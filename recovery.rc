@@ -18,6 +18,7 @@ on init
     mkdir /efs
     mkdir /tmp
     mkdir /dbdata
+    mkdir /datadata
 
     mkdir /mnt 0775 root root
 
@@ -40,20 +41,20 @@ on early-fs
     insmod /lib/modules/2.6.35.7/kernel/samsung/param/param.ko    
 
     #temp
-    chown root root /sbin/fat.format
-    chmod 750 /sbin/fat.format
+#    chown root root /sbin/fat.format
+#    chmod 750 /sbin/fat.format
 
 # change permission on recovery
     chown root root /recovery
     chmod 0770 /recovery        
 
 on fs
-    mount tmpfs tmpfs /tmp
-    mount rfs /dev/block/stl9 /system check=no
+#    mount tmpfs tmpfs /tmp
+#    mount rfs /dev/block/stl9 /system check=no
 
 # use preload
-	mkdir /preload
-	mount vfat /dev/block/mmcblk0p3 /preload ro nodev noatime nodiratime gid=0,uid=0,dmask=0022,fmask=0133,utf8,shortname=mixed    
+#	mkdir /preload
+#	mount vfat /dev/block/mmcblk0p3 /preload ro nodev noatime nodiratime gid=0,uid=0,dmask=0022,fmask=0133,utf8,shortname=mixed    
 
 # SEC_DMCRYPT for MC_CRYPT_ROOT before apply_disk_policy or apply_sec_devenc_init
     #chown system system /efs
@@ -67,7 +68,7 @@ on fs
     chmod 0666 /dev/smodule
 #  exec apply_smc_crypt
 
-    exec apply_disk_policy
+#    exec apply_disk_policy
 
 on post-fs
     mount rootfs rootfs / ro remount
@@ -94,10 +95,9 @@ service ueventd /sbin/ueventd
 service console /system/bin/sh
     console
 
-#service recovery /sbin/recovery
-service recovery /recovery
+service recovery /sbin/recovery
 
-service adbd /sbin/adbd recovery
+service adbd /sbin/adbd
 
 on property:persist.service.adb.enable=1
     start adbd
