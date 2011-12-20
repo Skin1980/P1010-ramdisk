@@ -40,8 +40,6 @@ on early-fs
     insmod /lib/modules/2.6.35.7/kernel/samsung/param/param.ko    
 
     #temp
-    chown root root /sbin/fat.format
-    chmod 750 /sbin/fat.format
 
 # change permission on recovery
     chown root root /recovery
