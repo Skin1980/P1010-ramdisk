@@ -610,8 +610,17 @@ on boot
     chown system system /dev/ttyGS0
     chown system system /dev/dun
 # +++++++++++++++++++++++++++++++++++++++++++
+# Chainfire - system patch run & wait
+    start cfpatch
+    write /data/sync_fifo sync
+    
+class_start default
 
-    class_start default
+# Chainfire - system patch service
+service cfpatch /sbin/boot-patch.sh
+    user root
+    oneshot
+    disabled
 
 ## Daemon processes to be run by init.
 ##
@@ -905,3 +914,6 @@ on property:encryption.bootmode=remount
     start tvout
     start DR-deamon
     start mobex-daemon
+
+on property:sys.boot_completed=1
+    stop samsungani
